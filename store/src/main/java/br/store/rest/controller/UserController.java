@@ -34,7 +34,7 @@ public class UserController {
 	@GetMapping("{id}")
 	public User getUserId(@PathVariable Integer id) {
 		return users.findById(id)
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
 	}
 
 
@@ -50,7 +50,7 @@ public class UserController {
 		users.findById(id).map(user -> {
 			users.delete(user);
 			return user;
-		}).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
+		}).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
 
 	}
 
@@ -61,7 +61,7 @@ public class UserController {
 			cliente.setId(clienteExistente.getId());
 			users.save(cliente);
 			return clienteExistente;
-		}).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
+		}).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
 	}
 
 	
