@@ -22,7 +22,7 @@ public class StoreApplication {
 		return args -> {
 			 User user= new User("andersonaaaa5454", "teste123aaa");
 			 users.save(user);
-			 Produt produto = new Produt("teste",(float) 1.2,1);
+			 Produt produto = new Produt("teste",(float) 100.2,1);
 			 Product.save(produto);
 			 List<Produt> ListaProdutos= Product.findAll();
 			 for(int a = 0; ListaProdutos.size() > a; a++) {

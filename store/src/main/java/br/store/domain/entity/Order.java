@@ -16,9 +16,8 @@ public class Order {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private Integer id;
-@ManyToOne
-@JoinColumn(name ="iduser")
-private User user;
+
+private Integer userID;
 
 
 public Integer getId() {
@@ -27,12 +26,14 @@ public Integer getId() {
 public void setId(Integer id) {
 	this.id = id;
 }
-public User getUser() {
-	return user;
+public Integer getUserID() {
+	return userID;
 }
-public void setUser(User user) {
-	this.user = user;
+public void setUserID(User userID) {
+	
+	this.userID = userID.getId();
 }
+
 
 
 
