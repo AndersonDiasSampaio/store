@@ -18,7 +18,6 @@ public class OrderController1 {
 	@Autowired UserRepository users; 
 	@Autowired OrderRepository Order;
 	public List<Order> listOrders(User user){
-		OrderRepository Order1 = new OrderRepository();
 		List<Order> listaOrder = Order1.findAll();
 		List<Order> listadeOrderUser = Order.findAll();
 		listadeOrderUser.clear();
