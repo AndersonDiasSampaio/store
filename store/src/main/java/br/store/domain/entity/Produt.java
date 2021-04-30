@@ -45,6 +45,7 @@ public class Produt {
 	public void setCategory_ID(int category_ID) {
 		this.category_ID = category_ID;
 	}
+	
 	public Produt(String nameProduct, float priceProduct, int category_ID) {
 		super();
 		this.nameProduct = nameProduct;
