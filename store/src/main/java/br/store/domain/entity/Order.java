@@ -56,7 +56,9 @@ public Order() {
 }
 
 
-
+public String toString() {
+	  return"ID - "+this.id   + ", UserID - "+this.userID;
+	}
 
 }
 

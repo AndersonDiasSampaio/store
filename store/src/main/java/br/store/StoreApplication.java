@@ -20,7 +20,7 @@ public class StoreApplication {
 	public CommandLineRunner innit(@Autowired UserRepository users, @Autowired ProdutRepository Product, @Autowired OrderRepository Order
 			) {
 		return args -> {
-			 User user= new User("andersonaaaa5454212", "teste123aaa121");
+		/* User user= new User("andersonaaaa5454212", "teste123aaa121");
 			 users.save(user);
 			 Produt produto = new Produt("teste",(float) 100.2,1);
 			 Product.save(produto);
@@ -37,11 +37,11 @@ public class StoreApplication {
 		Order order1 = new Order() ;
 			order1.setUserID(2);
 			Order.save(order1);
-			user.setId(2);
+			user.setId(2);*/
 			//OrderController1 controller1= new OrderController1();
 		//	controller1.listOrders(user);
 			// lógica que ficará no busca pedidos por cliente
-			List<Order> listaOrder = Order.findAll();
+	/*		List<Order> listaOrder = Order.findAll();
 			List<Order> listadeOrderUser = Order.findAll();
 			listadeOrderUser.clear();
 			for(int a1 = 0; listaOrder.size() > a1; a1++) {
@@ -54,13 +54,14 @@ public class StoreApplication {
 					 System.out.println("segundo");
 					
 					 listadeOrderUser.add(P);
+					 System.out.println(listadeOrderUser);
 				 }else {
 					
 					 System.out.println("terceiro");
 				 }
 				 
 			 }
-			 }
+			 }*/
 			//User user1 = new User(null, "yy", "yyyaaas1"); // mudar no banco a senha está como uniqui
 			//List<User> todosClientes = users.seachall();
 			// users.salvar(user1);
