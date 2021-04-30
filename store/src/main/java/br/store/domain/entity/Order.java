@@ -33,8 +33,14 @@ public void setUserID(User userID) {
 	
 	this.userID = userID.getId();
 }
+public Order(Integer id, Integer userID) {
+	this.id = id;
+	this.userID = userID;
+}
 
+public Order() {
 
+}
 
 
 
