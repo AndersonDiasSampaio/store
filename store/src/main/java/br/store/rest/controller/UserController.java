@@ -31,66 +31,25 @@ public class UserController {
 	}
 	
 
-	//@GetMapping("{id}")
+	@GetMapping("{id}")
 	public User getUserId(@PathVariable Integer id) {
 		return users.findById(id)
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
 	}
 
-	@GetMapping("{order}")//GetOrder Está no lugar errado
-	public List<Order> listOrders(@PathVariable Integer order) {
-		List<User> listaUser = users.findAll();
-		User user1 = new User();
-		for (int a1 = 0; listaUser.size() > a1; a1++) {
-			if(listaUser.get(a1).getId()==order) {
-				user1.setId(listaUser.get(a1).getId());
-				user1.setUserName(listaUser.get(a1).getUserName());
-				user1.setUserPassword(listaUser.get(a1).getUserPassword());
-				System.out.println(user1);
-			}
-		}
-		System.out.println(user1);
-
-		List<Order> listaOrder = order1.findAll();
-		System.out.println(listaOrder);
-
-		Order P = new Order();
-		System.out.println(user1);
-
-		List<Order> listadeOrderUser = order1.findAll();
-		System.out.println(user1);
-
-		listadeOrderUser.clear();
-		for (int a1 = 0; listaOrder.size() > a1; a1++) {
-			P.setUserID(listaOrder.get(a1).getUserID());
-			P.setId(listaOrder.get(a1).getId());
-			System.out.println("Primeiro");
-
-			if ((P.getUserID()) == user1.getId()) {
-
-				listadeOrderUser.add(P);
-			} else {
-
-			}
-
-		}
-		System.out.println(listaOrder);
-		return listaOrder;
-
-	}
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public User save(@RequestBody User cliente) {
-		return users.save(cliente);
+	public User save(@RequestBody User user) {
+		return users.save(user);
 	}
 
 	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Integer id) {
-		users.findById(id).map(cliente -> {
-			users.delete(cliente);
-			return cliente;
+		users.findById(id).map(user -> {
+			users.delete(user);
+			return user;
 		}).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
 
 	}
@@ -105,12 +64,5 @@ public class UserController {
 		}).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
 	}
 
-	@GetMapping
-	public List<User> find(User filtro) {
-		ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreCase()
-				.withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
-
-		Example example = Example.of(filtro, matcher);
-		return users.findAll(example);
-	}
+	
 }
