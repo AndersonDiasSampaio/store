@@ -1,14 +1,11 @@
 package br.store.domain.entity;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +17,8 @@ public class Produt {
 	private Integer id;
 	private String nameProduct;
 	private float priceProduct;
-   	
+	//@ManyToOne
+	//@JoinColumn(name ="idcategory")
 	private int category_ID;
 	
 	public Integer getId() {
@@ -49,6 +47,7 @@ public class Produt {
 	}
 	
 	public Produt(String nameProduct, float priceProduct, int category_ID) {
+		super();
 		this.nameProduct = nameProduct;
 		this.priceProduct = priceProduct;
 		this.category_ID = category_ID;

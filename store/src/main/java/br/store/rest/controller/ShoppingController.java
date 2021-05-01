@@ -53,6 +53,7 @@ public class ShoppingController {
 		List<Order> listaP = order1.findAll();
 		listaP.clear();
 		Order p = new Order();
+		System.out.println(user1.getId());
 
 		for (int a1 = 0; listaOrder.size() > a1; a1++) {
 			p = listaOrder.get(a1);
@@ -63,6 +64,7 @@ public class ShoppingController {
 				for (int a2 = 0; productOrderList.size() > a2; a2++) {
 					POrder = productOrderList.get(a2);
 					if ((p.getId()) == (POrder.getIdProductOrder())) {
+						System.out.println(p.getId());
 
 						productOrderListSave.add(POrder);
 					}
@@ -73,6 +75,7 @@ public class ShoppingController {
 			}
 
 		}
+		System.out.println(productOrderListSave);
 		return productOrderListSave;
 
 	}
